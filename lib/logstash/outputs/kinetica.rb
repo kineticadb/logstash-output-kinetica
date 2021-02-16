@@ -60,7 +60,7 @@ class LogStash::Outputs::Kinetica < LogStash::Outputs::Base
 	# If not specified, this defaults to the following:
 	#
 	# * if format is "csv", "application/json"
-	config :content_type, :validate => :string
+	config :content_type, :validate => :string, :default => "application/json"
 
 	# Set this to false if you don't want this output to retry failed requests
 	config :retry_failed, :validate => :boolean, :default => true

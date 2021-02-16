@@ -124,15 +124,9 @@ Timeout (in seconds) to wait for a connection to be established. Default is `10s
 ===== `content_type` 
 
   * Value type is <<string,string>>
-  * There is no default value for this setting.
+  * Default value is `"application/json"`
 
 Content type
-
-If not specified, this defaults to the following:
-
-* if format is "json", "application/json"
-* if format is "json_batch", "application/json". Each Logstash batch of events will be concatenated into a single array and sent in one request.
-* if format is "form", "application/x-www-form-urlencoded"
 
 [id="plugins-{type}s-{plugin}-cookies"]
 ===== `cookies` 
