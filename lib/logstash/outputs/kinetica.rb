@@ -24,16 +24,13 @@ class LogStash::Outputs::Kinetica < LogStash::Outputs::Base
 		::Manticore::SocketTimeout
 	]
 
-	# This output lets you send events to a
-	# generic HTTP(S) endpoint
+	# This output lets you send events to a Kinetica database
 	#
 	# This output will execute up to 'pool_max' requests in parallel for performance.
 	# Consider this when tuning this plugin for performance.
 	#
 	# Additionally, note that when parallel execution is used strict ordering of events is not
 	# guaranteed!
-	#
-	# Beware, this gem does not yet support codecs. Please use the 'format' option for now.
 
 	config_name "kinetica"
 
@@ -54,9 +51,6 @@ class LogStash::Outputs::Kinetica < LogStash::Outputs::Base
 	# Example: {"text_has_header"=>"false", "error_handling"=>"abort"}
 	config :options, :validate => :hash, :default => {}
 	
-	# The HTTP Verb. One of "put", "post", "patch", "delete", "get", "head"
-	#config :http_method, :validate => VALID_METHODS, :required => :true
-
 	# Custom headers to use
 	# format is `headers => ["X-My-Header", "%{host}"]`
 	config :headers, :validate => :hash, :default => {}
@@ -65,8 +59,7 @@ class LogStash::Outputs::Kinetica < LogStash::Outputs::Base
 	#
 	# If not specified, this defaults to the following:
 	#
-	# * if format is "json", "application/json"
-	# * if format is "form", "application/x-www-form-urlencoded"
+	# * if format is "csv", "application/json"
 	config :content_type, :validate => :string
 
 	# Set this to false if you don't want this output to retry failed requests
@@ -78,15 +71,6 @@ class LogStash::Outputs::Kinetica < LogStash::Outputs::Base
 	# If you would like to consider some non-2xx codes to be successes
 	# enumerate them here. Responses returning these codes will be considered successes
 	config :ignorable_codes, :validate => :number, :list => true
-
-	# This lets you choose the structure and parts of the event that are sent.
-	#
-	#
-	# For example:
-	# [source,ruby]
-	#		mapping => {"foo" => "%{host}"
-	#							 "bar" => "%{type}"}
-	#config :mapping, :validate => :hash
 
 	# Set the format of the http body.
 	#
@@ -100,8 +84,6 @@ class LogStash::Outputs::Kinetica < LogStash::Outputs::Base
 
 	# Set this to true if you want to enable gzip compression for your http requests
 	config :http_compression, :validate => :boolean, :default => false
-
-	config :message, :validate => :string
 
 	def register
 		#@http_method = @http_method.to_sym

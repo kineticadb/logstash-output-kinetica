@@ -17,7 +17,7 @@ describe LogStash::Outputs::Kinetica do
   let(:method) { :post }
 
   shared_examples("basic tests") do
-		let(:basic_tests_config) { {"url" => url, "pool_max" => 1, "user" => "admin", "password" => "***",\
+		let(:basic_tests_config) { {"url" => url, "pool_max" => 1, "user" => "user", "password" => "Password_1",\
 			"table_name" => "jkr_test", "options" => {"text_has_header"=>"false", "error_handling"=>"abort"} } }
 		subject { LogStash::Outputs::Kinetica.new(basic_tests_config) }
 
