@@ -1,9 +1,8 @@
 Gem::Specification.new do |s|
   s.name          = 'logstash-output-kinetica'
-  s.version       = '0.1.1'
+  s.version       = '0.1.2'
   s.licenses      = ['Apache-2.0']
-  s.summary       = 'Write a short summary, because Rubygems requires one.'
-  s.description   = 'Write a longer description or delete this line.'
+  s.summary       = 'This is a logstash output plugin that lets you send events to a Kinetica database.'
   s.homepage      = 'https://github.com/durika/logstash-output-kinetica'
   s.authors       = ['Juraj Kristofik']
   s.email         = 'jkristofik@kinetica.com'
