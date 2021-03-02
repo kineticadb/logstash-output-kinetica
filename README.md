@@ -7,9 +7,11 @@ It is fully free and fully open source. The license is Apache 2.0, meaning you a
 ## Documentation
 
 Logstash provides infrastructure to automatically generate documentation for this plugin. We use the asciidoc format to write documentation so any comments in the source code will be first converted into asciidoc and then into html. All plugin documentation are placed under one [central location](http://www.elastic.co/guide/en/logstash/current/).
-
 - For formatting code or config example, you can use the asciidoc `[source,ruby]` directive
 - For more asciidoc formatting tips, see the excellent reference here https://github.com/elastic/docs#asciidoc-guide
+
+Asciidoc for this plugin can be found [here](https://github.com/kineticadb/logstash-output-kinetica/blob/master/docs/index.asciidoc)
+
 
 ## Need Help?
 
@@ -20,10 +22,9 @@ Need help? Try #logstash on freenode IRC or the https://discuss.elastic.co/c/log
 ### 1. Plugin Developement and Testing
 
 #### Code
+
 - To get started, you'll need JRuby with the Bundler gem installed.
-
 - Create a new plugin or clone and existing from the GitHub [logstash-plugins](https://github.com/logstash-plugins) organization. We also provide [example plugins](https://github.com/logstash-plugins?query=example).
-
 - Install dependencies
 ```sh
 bundle install
@@ -49,7 +50,7 @@ bundle exec rspec
 
 - Edit Logstash `Gemfile` and add the local plugin path, for example:
 ```ruby
-gem "logstash-filter-awesome", :path => "/your/local/logstash-filter-awesome"
+gem "logstash-output-mykinetica", :path => "/your/local/logstash-output-mykinetica"
 ```
 - Install plugin
 ```sh
@@ -67,11 +68,11 @@ You can use the same **2.1** method to run your plugin in an installed Logstash 
 
 - Build your plugin gem
 ```sh
-gem build logstash-filter-awesome.gemspec
+gem build logstash-output-mykinetica.gemspec
 ```
 - Install the plugin from the Logstash home
 ```sh
-bin/logstash-plugin install /your/local/plugin/logstash-filter-awesome.gem
+bin/logstash-plugin install /your/local/plugin/logstash-output-mykinetica.gem
 ```
 - Start Logstash and proceed to test the plugin
 
