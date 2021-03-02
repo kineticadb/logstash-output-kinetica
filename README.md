@@ -58,7 +58,7 @@ bin/logstash-plugin install --no-verify
 ```
 - Run Logstash with your plugin
 ```sh
-bin/logstash -e 'filter {awesome {}}'
+bin/logstash -e 'filter {kinetica {table_name => "some_table" ...}}'
 ```
 At this point any modifications to the plugin code will be applied to this local Logstash setup. After modifying the plugin, simply rerun Logstash.
 
